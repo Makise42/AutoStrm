@@ -1,0 +1,14 @@
+services:
+  autostrm:
+    image: autostrm:latest
+    container_name: autostrm
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./config/config.yaml:/app/config/config.yaml:ro
+      - ./media:/media
+      - ./logs:/app/logs
+    command: ["python", "-m", "app.main", "server"]

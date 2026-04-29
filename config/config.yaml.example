@@ -1,0 +1,44 @@
+Settings:
+  DEV: false
+
+# Openlist2Strm 会扫描 Openlist 中的文件，并在本地生成 STRM 文件。
+# 如果后缀在 subtitle/image/nfo/other_ext 中，则会下载原文件，而不是生成 STRM。
+Openlist2Strm:
+  - id: anime
+    cron: "0 3 * * *"
+    url: "http://openlist:5244"
+    public_url: "https://openlist.example.com"
+    username: "admin"
+    password: "admin_password"
+    token: ""
+    source_dir: "/Anime"
+    target_dir: "/media/Anime"
+    flatten_mode: false
+    subtitle: true
+    image: true
+    nfo: true
+    other_ext: ".zip,.rar"
+    mode: "OpenlistURL"
+    overwrite: false
+    sync_server: true
+    sync_ignore: "\\.(nfo|jpg|png)$"
+    max_workers: 50
+    max_downloaders: 5
+    wait_time: 0
+
+# Ani2Openlist 会把 Ani Open 的番剧写入 Openlist 的 UrlTree 存储。
+Ani2Openlist:
+  - id: ani-open
+    cron: "30 3 * * *"
+    url: "http://openlist:5244"
+    username: "admin"
+    password: "admin_password"
+    token: ""
+    target_dir: "/Anime/Ani Open"
+    rss_update: true
+    year:
+    month:
+    src_domain: "openani.an-i.workers.dev"
+    rss_domain: "api.ani.rip"
+    key_word:
+
